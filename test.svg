@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="800px" height="600px"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:a="http://www.adobe.com/svg10-extensions" a:timeline="independent"
+     onload="top.load(evt)">
+<g id="text" font-size="15px">
+    <text x="10" y="30">first line
+        <tspan x="20" y="20">second line</tspan>
+        <tspan x="30" dy="10">third line</tspan>
+    </text>
+</g>
+</svg>

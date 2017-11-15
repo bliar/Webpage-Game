@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="800px" height="600px"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:a="http://www.adobe.com/svg10-extensions" a:timeline="independent"
+     onload="top.load(evt)">
+  <xhtml:audio id="exit_snd" src="exit.wav" begin="indefinite"/>
+  <xhtml:audio id="game_snd" src="game.wav" begin="indefinite"/>
+  <xhtml:audio id="player_snd" src="player.wav" begin="indefinite"/>
+  <xhtml:audio id="monster_snd" src="monster.wav" begin="indefinite"/>
+  <xhtml:audio id="shoot_snd" src="shoot.wav" begin="indefinite"/>
+  <defs>
+    <clipPath id="gameareaclip">
+      <rect x="20" y="20" width="600" height="560"/>
+    </clipPath>
+    <pattern id="background_pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" style="fill:lightblue"/>
+      <circle cx="10" cy="10" r="8" style="fill:white"/>
+    </pattern>
+    <radialGradient id="player_color">
+      <stop offset="0.0" style="stop-color:blue;stop-opacity:1"/>
+      <stop offset="0.8" style="stop-color:blue;stop-opacity:1"/>
+      <stop offset="1.0" style="stop-color:green;stop-opacity:1"/>
+    </radialGradient>
+
+    <g id="bullet">
+      <circle cx="5" cy="5" r="5" style="fill:red"/>
+      <circle cx="6" cy="3" r="1" style="fill:green"/>
+    </g>
+    <g id="monster">
+      <path transform="rotate(90 19.737905502319336,20.407091140747074) " stroke="#000" id="svg_1" d="m19.83847,1.31162c-0.4104,0 -0.77553,0.16383 -1.08361,0.46101c-0.30782,0.29693 -0.56243,0.72241 -0.77429,1.25379c-0.42368,1.06261 -0.6843,2.55534 -0.82686,4.34301c-0.14228,1.78424 -0.16626,3.86182 -0.10715,6.08583c-5.06949,2.02245 -15.35135,6.19826 -16.17731,7.13064c-1.09966,1.24135 -0.74436,2.664 -0.30123,3.60841l16.90308,-3.3456c0.35729,4.35989 0.86531,8.67812 1.30801,12.06179c-1.65302,0.47046 -4.73867,1.39941 -5.37558,1.97546c-0.87741,0.79356 -0.8774,3.35635 -0.8774,3.35635l6.91811,-0.54718c0.16294,1.10469 0.26483,1.74927 0.26483,1.74927l0.01011,0.05817l0.05459,0l0.12736,0l0.05459,0l0.01011,-0.05817c0,0 0.1017,-0.64459 0.26483,-1.74927l6.92014,0.54718c0,0 0.00001,-2.56279 -0.8774,-3.35635c-0.63715,-0.57628 -3.72506,-1.50733 -5.37761,-1.97763c0.44178,-3.37329 0.94891,-7.675 1.30599,-12.02084l16.70496,3.30681c0.44313,-0.94442 0.80046,-2.36707 -0.2992,-3.60841c-0.81574,-0.92083 -10.84915,-5.00377 -15.98121,-7.05309c0.06132,-2.25283 0.03878,-4.35873 -0.10513,-6.16337l0,-0.00431c-0.14263,-1.78571 -0.40353,-3.27698 -0.82685,-4.3387c-0.21181,-0.53123 -0.46434,-0.95676 -0.77227,-1.25379c-0.30808,-0.29718 -0.67321,-0.46101 -1.08361,-0.46101l-0.00001,0z" stroke-width="1.5" fill="#00ffff"/>
+     </g>
+    <g id="good">
+      <path stroke="#000" id="svg_1" d="m7.68165,17.27412c-5.38039,-4.38966 -7.30409,-7.16649 -7.31968,-10.56582c-0.01422,-3.09891 2.36049,-6.08981 4.82147,-6.07256c1.2289,0.00863 3.86497,1.1492 4.79841,2.07619c0.47032,0.46707 0.69309,0.42102 1.74021,-0.3598c2.84982,-2.12504 5.63271,-2.16964 7.43502,-0.11916c2.88049,3.27711 2.35606,7.19057 -1.50754,11.24989c-2.05411,2.15817 -6.53985,5.98688 -7.01425,5.98688c-0.14435,0 -1.47349,-0.98803 -2.95364,-2.19563l0,0z" stroke-width="1.5" fill="#ff0000"/>
+    </g>
+    <g id="door">
+    <path stroke="#000" id="svg_13" d="m20.32106,0.70702c5.33225,0 9.65808,4.43371 9.65808,9.89369c0,5.45998 -4.32583,9.88943 -9.65808,9.88943c-5.33226,0 -9.65808,4.43372 -9.65808,9.8937c0,5.45998 4.32583,9.88943 9.65808,9.88943c10.66451,0 19.32033,-8.86317 19.32033,-19.78313c0,-10.91996 -8.65582,-19.78312 -19.32033,-19.78312l0,0zm0,6.80192c-1.66719,0 -3.01945,1.38465 -3.01945,3.09178c0,1.70713 1.35226,3.09178 3.01945,3.09178c1.66719,0 3.01945,-1.38465 3.01945,-3.09178c0,-1.70712 -1.35226,-3.09178 -3.01945,-3.09178zm0,19.78313c1.66633,0 3.01945,1.38553 3.01945,3.09178c0,1.70624 -1.35312,3.09178 -3.01945,3.09178c-1.66633,0 -3.01945,-1.38554 -3.01945,-3.09178c0,-1.70624 1.35313,-3.09178 3.01945,-3.09178zm18.88699,-6.78931c0,10.91185 -8.63886,19.75765 -19.29545,19.75765c-10.65658,0 -19.29545,-8.8458 -19.29545,-19.75765c0,-10.91185 8.63887,-19.75766 19.29545,-19.75766c10.65659,0 19.29545,8.8458 19.29545,19.75766z" stroke-opacity="null" stroke-width="1.5" fill="#333333"/>
+    </g>
+   <g id="exit">
+    <rect stroke="#000" id="svg_16" height="47.15431" width="27.10018" y="1.37768" x="1.04341" stroke-opacity="null" stroke-width="0.5" fill="#ff7f00"/>
+    <ellipse stroke="#000" ry="2.43902" rx="2.71002" id="svg_17" cy="27.12285" cx="23.80756" fill-opacity="null" stroke-opacity="null" stroke-width="0.5" fill="#ffffff"/>
+   </g>
+  </defs>
+
+  <rect width="100%" height="100%" style="fill:url(#background_pattern);stroke:lightcoral;stroke-width:4" />
+
+  <rect x="20" y="20" width="600" height="560" style="fill:black;stroke:red;stroke-width:5" />
+
+
+  <g transform="translate(640, 120)">
+    <text x="70" y="0" style="fill:red;font-size:25px;font-weight:bold;text-anchor:middle">Score:</text>
+    <rect x="0" y="10" width="140" height="35" style="fill:white" />
+    <text id="score" x="70" y="36" style="fill:red;font-size:25px;text-anchor:middle">0</text>
+    <text x="70" y="100" style="fill:red;font-size:25px;font-weight:bold;text-anchor:middle">Bullets Left:</text>
+    <rect x="0" y="110" width="140" height="35" style="fill:white" />
+    <text id="bullet_left" x="70" y="136" style="fill:red;font-size:25px;text-anchor:middle">8</text>
+    <text x="70" y="200" style="fill:red;font-size:20px;font-weight:bold;text-anchor:middle">Time Remaining:</text>
+    <rect x="0" y="210" width="140" height="35" style="fill:white" />
+    <text id="timer" x="70" y="236" style="fill:red;font-size:25px;text-anchor:middle">100</text>
+    <text x="70" y="300" style="fill:red;font-size:20px;font-weight:bold;text-anchor:middle">Level:</text>
+    <rect x="0" y="310" width="140" height="35" style="fill:white" />
+    <text id="level" x="70" y="336" style="fill:red;font-size:25px;text-anchor:middle">1</text>
+  </g>
+
+  <g style="clip-path:url(#gameareaclip)">
+    <g transform="translate(20,20)">
+      <g id="gamearea" transform="translate(0,0)" width="600" height="560">
+        <rect x="0" y="0" width="600" height="560" style="fill:white" />
+
+        <g id="platforms">
+            <!-- 60 -->
+            <rect style="fill:lightcoral" width="60" height="20" x="0" y="60"/>
+
+            <!-- 80 -->
+            <rect style="fill:lightcoral" width="20" height="20" x="40" y="80"/>
+
+            <!-- 100 -->
+            <rect style="fill:lightcoral" width="400" height="20" x="40" y="100"/>
+
+            <!-- 120 -->
+            <rect style="fill:lightcoral" width="20" height="20" x="60" y="120"/>
+            <rect style="fill:lightcoral" width="40" height="20" x="220" y="120"/>
+
+            <!-- 140 -->
+            <rect style="fill:lightcoral" width="40" height="20" x="220" y="140"/>
+
+            <!-- 160 -->
+            <rect style="fill:lightcoral" width="120" height="20" x="180" y="160"/>
+            <rect style="fill:lightcoral" width="60" height="20" x="540" y="160"/>
+
+            <!-- 180 -->
+            <rect style="fill:lightcoral" width="20" height="20" x="100" y="180"/>
+            <rect style="fill:lightcoral" width="20" height="20" x="380" y="180"/>
+            <rect style="fill:lightcoral" width="80" height="20" x="520" y="180"/>
+
+            <!-- 200 -->
+            <rect style="fill:lightcoral" width="40" height="20" x="80" y="200"/>
+            <rect style="fill:lightcoral" width="80" height="20" x="360" y="200"/>
+
+            <!-- 220 -->
+            <rect style="fill:lightcoral" width="160" height="20" x="0" y="220"/>
+            <rect style="fill:lightcoral" width="140" height="20" x="320" y="220"/>
+
+            <!-- 240 -->
+            <rect style="fill:lightcoral" width="20" height="20" x="240" y="240"/>
+            <rect style="fill:lightcoral" width="120" height="20" x="340" y="240"/>
+
+            <!-- 260 -->
+            <rect style="fill:lightcoral" width="60" height="20" x="220" y="260"/>
+
+            <!-- 280 -->
+            <rect style="fill:lightcoral" width="100" height="20" x="200" y="280"/>
+
+            <!-- 300 -->
+            <rect style="fill:lightcoral" width="100" height="20" x="120" y="300"/>
+            <rect style="fill:lightcoral" width="40" height="20" x="280" y="300"/>
+            <rect id="vertical_platform" style="fill:lightcoral" width="100" height="20" x="500" y="300"/>
+
+            <!-- 380 -->
+            <rect style="fill:lightcoral" width="20" height="20" x="220" y="380"/>
+
+            <!-- 400 -->
+            <rect style="fill:lightcoral" width="80" height="20" x="180" y="400"/>
+
+            <!-- 420 -->
+            <rect style="fill:lightcoral" width="200" height="20" x="160" y="420"/>
+            <rect style="fill:lightcoral" width="60" height="20" x="540" y="420"/>
+
+            <!-- 440 -->
+            <rect style="fill:lightcoral" width="100" height="20" x="140" y="440"/>
+            <rect style="fill:lightcoral" width="20" height="20" x="440" y="440"/>
+            <rect style="fill:lightcoral" width="60" height="20" x="500" y="440"/>
+
+            <!-- 460 -->
+            <rect style="fill:lightcoral" width="60" height="20" x="120" y="460"/>
+            <rect style="fill:lightcoral" width="60" height="20" x="400" y="460"/>
+
+            <!-- 480 -->
+            <rect style="fill:lightcoral" width="40" height="20" x="0" y="480"/>
+            <rect style="fill:lightcoral" width="60" height="20" x="380" y="480"/>
+
+            <!-- 500 -->
+            <rect style="fill:lightcoral" width="60" height="20" x="0" y="500"/>
+            <rect style="fill:lightcoral" width="20" height="20" x="260" y="500"/>
+
+            <!-- 520 -->
+            <rect style="fill:lightcoral" width="80" height="20" x="0" y="520"/>
+            <rect style="fill:lightcoral" width="20" height="20" x="140" y="520"/>
+            <rect style="fill:lightcoral" width="80" height="20" x="240" y="520"/>
+            <rect style="fill:lightcoral" width="20" height="20" x="500" y="520"/>
+
+            <!-- the floor -->
+            <rect style="fill:lightcoral" width="600" height="20" x="0" y="540"/>
+        </g>
+
+        <g id="monsters"/>
+        <g id="bullets"/>
+        <g id="goods"/>
+        <g id="exits"/>
+        <g id="doors"/>
+        <g id="users"/>
+
+        <g id="player">
+          <g id="img">
+            <path stroke="#000" id="svg_3" d="m36.08567,19.35264c-1.87353,-1.77838 -4.16566,-3.21816 -6.46483,-4.22534c-2.68277,1.03237 -5.95024,1.661 -9.51241,1.661c-3.56917,0 -6.84134,-0.62986 -9.51938,-1.661c-2.29916,1.00718 -4.59364,2.44696 -6.47176,4.22534c-4.35979,4.12888 -4.83926,8.36406 -1.07362,9.46218c1.68641,0.49467 3.45459,0.12597 5.28132,-0.79887c-0.32043,0.93773 -0.50756,1.95412 -0.50756,3.01722c0,4.72311 3.49204,8.54903 7.7956,8.54903c2.5939,0 3.87796,-1.3931 4.4954,-3.52605c0.61517,2.13295 1.89921,3.52605 4.48372,3.52605c4.31063,0 7.80271,-3.82592 7.80271,-8.54903c0,-1.06311 -0.18719,-2.07949 -0.51459,-3.01722c1.83136,0.92484 3.59722,1.29354 5.28831,0.79887c3.76332,-1.09812 3.27677,-5.3333 -1.0829,-9.46218l0,0zm-15.98185,-4.17557c7.24125,0 13.11428,-3.08604 13.11428,-6.89291s-5.87303,-6.89292 -13.11428,-6.89292c-7.24371,0 -13.12138,3.08666 -13.12138,6.89292s5.87767,6.89291 13.12138,6.89291z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#ff7f00"/>
+            <ellipse ry="2.51256" rx="3.51759" id="svg_4" cy="7.85595" cx="23.76884" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ff7f00"/>
+          </g>
+          <g>
+            <text id="input">name</text>
+          </g>
+        </g>
+      </g>
+
+      <g id="highscoretable" transform="translate(40,40)" style="visibility:hidden">
+        <rect width="520" height="480" style="fill:white;stroke:red;stroke-width:2"/>
+        <text x="260" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">High Score Table</text> 
+        <text id="highscoretext" y="45" style="font-size: 20px;font-weight:bold"/>
+        <text x="160" y="300" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Your score: </text>
+        <text id="yourscoretext" x="300" y="300" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">0</text>
+        <g id="again">
+          <rect x="190" y="360" width="140" height="50" style="fill:white; stroke:red; stroke-width:2"/>
+          <text x="260" y="390" style="fill:red; font-size:30px; text-anchor:middle">Start Again</text>
+        </g>  
+      </g>
+
+      <g id="level" transform="translate(40,40)" style="visibility:hidden">
+        <rect width="300" height="200" style="fill:white; stroke:red;stroke-width:2"/>
+      </g>
+
+      <g id="cong" transform="translate(200,200)" style="visibility:hidden">
+        <rect width="250" height="120" style="fill:white;stroke:red;stroke-width:2"/>
+        <text x="120" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Congratulations!</text>
+      </g>
+
+      <g id="next" transform="translate(200,200)" style="visibility:hidden">
+        <rect x="50" y="50" width="140" height="50" style="fill:white; stroke:red; stroke-width:2"/>
+        <text x="120" y="80" style="fill:red; font-size:30px; text-anchor:middle">Next Level</text>
+      </g>
+
+
+      <g id="start" transform="translate(40,40)" style="visibility:visible">
+        <rect width="520" height="480" style="fill:white;stroke:red;stroke-width:2"/>
+        <text x="260" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Beat the Plane!</text> 
+        <text id="highscoretext" y="45" style="font-size: 20px;font-weight:bold"/>
+      </g>
+
+      <g id="ins" transform="translate(40,40)" style="visibility:visible">
+        <text x="100" y="60" style="fill:orange;font-size:20px;font-weight:bold">
+          <tspan x="40" dy="25"> Hello, This is LI Bo! </tspan>
+          <tspan x="40" dy="25"> A war is going on! Your base is being attacked!</tspan>
+          <tspan x="40" dy="25"> In this game you need to destroy all enemy planes!</tspan>
+          <tspan x="40" dy="25"> Press 
+          <tspan style="fill:red">N</tspan> 
+            to move left and 
+          <tspan style="fill:red">M</tspan>
+            to move right.
+          </tspan>
+          <tspan x="40" dy="25"> Press
+          <tspan style="fill:red">C</tspan> 
+            to enter cheat mode and 
+            <tspan style="fill:red">V</tspan>
+            to leave.
+          </tspan>
+          <tspan x="40" dy="25"> Press 
+            <tspan style="fill:red">Z</tspan> 
+            to jump and 
+            <tspan style="fill:red">SPACE</tspan>
+            to shoot bullets.
+          </tspan>
+          <tspan x="40" dy="25">In cheat mode the Bullet Number will not decease.</tspan>
+          <tspan x="40" dy="25"> When you are near the 
+            <tspan style="fill:red">Tai Chi</tspan> 
+            Transmission portal, 
+          </tspan>
+          <tspan x="40" dy="25"> press
+            <tspan style="fill:red">Z</tspan>
+            to transfer your self.
+          </tspan>
+          <tspan x="40" dy="25"> When you arrive door, press
+            <tspan style="fill:red">Z</tspan>
+            and run into next level.
+          </tspan>
+          <tspan x="40" dy="25"> You need to collect all hearts and destroy all planes.</tspan>
+          <tspan x="40" dy="25"> There are 3 levels in total. Let's START NOW!</tspan>         
+        </text>
+      </g>
+
+      <g id="btn" transform="translate(40, 40)" style="visibility:visible">
+        <rect x="215" y="370" width="95" height="50" style="fill:white; stroke:red; stroke-width:2"/>
+        <text x="260" y="400" style="fill:red; font-size:30px; text-anchor:middle">Start</text>
+      </g>
+
+    </g>
+  </g>
+</svg>
